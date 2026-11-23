@@ -1,0 +1,11 @@
+[
+ {
+  "doctype": "Role",
+  "role_name": "VC Roster Sync",
+  "name": "VC Roster Sync",
+  "desk_access": 1,
+  "two_factor_auth": 0,
+  "disabled": 0,
+  "is_custom": 0
+ }
+]
