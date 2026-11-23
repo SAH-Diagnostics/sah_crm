@@ -1,0 +1,323 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:vc_shift_id",
+ "creation": "2026-11-23 00:00:00.000000",
+ "description": "Read-only copy of a Virtual Clinics shift, pushed one way by VC (VC-755). VC is the source of truth; edit the shift in VC.",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "shift_section",
+  "vc_reference_id",
+  "status",
+  "shift_date",
+  "start_time",
+  "end_time",
+  "end_date",
+  "column_break_place",
+  "trust_name",
+  "clinic_name",
+  "clinic_reference_id",
+  "scan_types",
+  "timing_section",
+  "duration_minutes",
+  "net_minutes",
+  "column_break_lunch",
+  "lunch_break_enabled",
+  "lunch_start",
+  "lunch_end",
+  "lunch_minutes",
+  "staffing_section",
+  "total_required",
+  "total_assigned",
+  "total_open",
+  "staffing",
+  "clinicians",
+  "vc_section",
+  "trust_id",
+  "clinic_id",
+  "location_id",
+  "column_break_refs",
+  "vc_shift_id",
+  "vc_version_id",
+  "last_synced_at"
+ ],
+ "fields": [
+  {
+   "fieldname": "shift_section",
+   "fieldtype": "Section Break",
+   "label": "Shift"
+  },
+  {
+   "fieldname": "vc_reference_id",
+   "fieldtype": "Data",
+   "label": "Shift ID",
+   "read_only": 1,
+   "description": "The shift ID shown in the trust portal",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "search_index": 1,
+   "bold": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nCancelled",
+   "default": "Active",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "search_index": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "shift_date",
+   "fieldtype": "Date",
+   "label": "Shift Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "search_index": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "label": "Start Time",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Time",
+   "label": "End Time",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date",
+   "description": "Differs from Shift Date only when the shift runs past midnight",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_place",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "trust_name",
+   "fieldtype": "Data",
+   "label": "Trust",
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "clinic_name",
+   "fieldtype": "Data",
+   "label": "Clinic",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "clinic_reference_id",
+   "fieldtype": "Data",
+   "label": "Clinic ID",
+   "description": "The clinic's short ID in Virtual Clinics",
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "scan_types",
+   "fieldtype": "Small Text",
+   "label": "Scan Types",
+   "read_only": 1
+  },
+  {
+   "fieldname": "timing_section",
+   "fieldtype": "Section Break",
+   "label": "Duration and Lunch"
+  },
+  {
+   "fieldname": "duration_minutes",
+   "fieldtype": "Int",
+   "label": "Duration (minutes)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "net_minutes",
+   "fieldtype": "Int",
+   "label": "Net Minutes",
+   "description": "Duration minus lunch",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_lunch",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lunch_break_enabled",
+   "fieldtype": "Check",
+   "label": "Lunch Break",
+   "default": "0",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lunch_start",
+   "fieldtype": "Time",
+   "label": "Lunch Start",
+   "depends_on": "lunch_break_enabled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lunch_end",
+   "fieldtype": "Time",
+   "label": "Lunch End",
+   "depends_on": "lunch_break_enabled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "lunch_minutes",
+   "fieldtype": "Int",
+   "label": "Lunch (minutes)",
+   "depends_on": "lunch_break_enabled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "staffing_section",
+   "fieldtype": "Section Break",
+   "label": "Staffing"
+  },
+  {
+   "fieldname": "total_required",
+   "fieldtype": "Int",
+   "label": "Required",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_assigned",
+   "fieldtype": "Int",
+   "label": "Assigned",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_open",
+   "fieldtype": "Int",
+   "label": "Open Slots",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "staffing",
+   "fieldtype": "Table",
+   "label": "Staffing by Role",
+   "options": "VC Roster Staffing Requirement",
+   "read_only": 1
+  },
+  {
+   "fieldname": "clinicians",
+   "fieldtype": "Table",
+   "label": "Assigned Clinicians",
+   "options": "VC Roster Shift Clinician",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vc_section",
+   "fieldtype": "Section Break",
+   "label": "VC References",
+   "collapsible": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "trust_id",
+   "fieldtype": "Data",
+   "label": "VC Trust UUID",
+   "search_index": 1,
+   "read_only": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "clinic_id",
+   "fieldtype": "Data",
+   "label": "VC Clinic UUID",
+   "read_only": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "location_id",
+   "fieldtype": "Data",
+   "label": "VC Location UUID",
+   "read_only": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "column_break_refs",
+   "fieldtype": "Column Break",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "vc_shift_id",
+   "fieldtype": "Data",
+   "label": "VC Shift UUID",
+   "reqd": 1,
+   "unique": 1,
+   "read_only": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "vc_version_id",
+   "fieldtype": "Data",
+   "label": "VC Version",
+   "read_only": 1,
+   "print_hide": 1
+  },
+  {
+   "fieldname": "last_synced_at",
+   "fieldtype": "Datetime",
+   "label": "Last Synced At",
+   "read_only": 1,
+   "print_hide": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "module": "SAH CRM",
+ "name": "VC Roster Shift",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "role": "VC Roster Sync",
+   "read": 1,
+   "report": 0,
+   "export": 0,
+   "print": 0,
+   "email": 0,
+   "share": 0,
+   "create": 1,
+   "write": 1,
+   "delete": 0
+  },
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 0,
+   "share": 0,
+   "create": 0,
+   "write": 0,
+   "delete": 0
+  }
+ ],
+ "sort_field": "shift_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "vc_reference_id",
+ "track_changes": 1,
+ "show_title_field_in_link": 1,
+ "search_fields": "vc_reference_id,clinic_name",
+ "in_create": 1,
+ "default_print_format": "VC Roster Shift"
+}

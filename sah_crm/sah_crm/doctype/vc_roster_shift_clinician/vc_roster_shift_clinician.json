@@ -1,0 +1,43 @@
+{
+ "actions": [],
+ "creation": "2026-11-23 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 0,
+ "engine": "InnoDB",
+ "field_order": [
+  "clinician_name",
+  "user_type",
+  "vc_practitioner_role_id"
+ ],
+ "fields": [
+  {
+   "fieldname": "clinician_name",
+   "fieldtype": "Data",
+   "label": "Clinician",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "user_type",
+   "fieldtype": "Data",
+   "label": "Role",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "vc_practitioner_role_id",
+   "fieldtype": "Data",
+   "label": "VC Practitioner Role UUID",
+   "in_list_view": 0,
+   "print_hide": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "module": "SAH CRM",
+ "name": "VC Roster Shift Clinician",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
